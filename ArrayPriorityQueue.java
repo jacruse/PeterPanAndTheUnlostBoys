@@ -8,7 +8,7 @@ HW32 -- Getting Past the Velvet Rope
 
 import java.util.ArrayList;
 
-public class ArrayPriorityQueue implements PriorityQueue
+public class ArrayPriorityQueue<T extends Comparable<T>> implements PriorityQueue
 {
     private int _size;
     private ArrayList<Object> _data;
@@ -21,14 +21,14 @@ public class ArrayPriorityQueue implements PriorityQueue
 
     public void add( Object x )
     {
-	int val = ( int ) x;
+	T val = ( T ) x;
 	int lb = 0;
 	int ub = _size;
 	int mb = ( ub - lb ) / 2;
 	
 	while (!( lb >= ub) )
 	    {
-		if ( (int) _data.get( mb ) > val )
+		if ( ( ( T ) _data.get( mb ) ).compareTo( val ) > 0 )
 		    {	
 			if (lb == mb){
 			    _data.add(ub,x);
@@ -39,7 +39,7 @@ public class ArrayPriorityQueue implements PriorityQueue
 			lb = mb;
 		    }
 
-		else if ( (int) _data.get( mb ) < val )
+		else if ( ( (T) _data.get( mb ) ).compareTo( val ) < 0 )
 		    {
 			
 			if (ub == mb){
@@ -95,7 +95,7 @@ public class ArrayPriorityQueue implements PriorityQueue
     }
 
     public static void main (String[] args){
-	PriorityQueue bob = new ArrayPriorityQueue();
+	PriorityQueue bob = new ArrayPriorityQueue<Integer>();
 	bob.add(1);
 	bob.add(2);
 	bob.add(3);
