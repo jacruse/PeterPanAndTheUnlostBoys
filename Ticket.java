@@ -9,6 +9,10 @@ public class Ticket implements Comparable{
     private static int idTracker = 0;
     
     public Ticket(){
+	if ( idTracker > 10000 )
+	    {
+		idTracker = 0;
+	    }
 	_id = idTracker;
 	idTracker +=1;
 	_vip = 0;
@@ -19,8 +23,7 @@ public class Ticket implements Comparable{
     }
     
     public Ticket(int vip, String name, String prob){
-	_id = idTracker;
-	idTracker +=1;
+	super();
 	_vip = vip;
 	_name = name;
 	problem = prob;
