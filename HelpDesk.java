@@ -5,7 +5,7 @@ public class HelpDesk {
 	work = new ArrayPriorityQueue<Ticket>();
     }
 
-    public String add(int vip, String name, String problem){
+    public void add(int vip, String name, String problem){
 	work.add(new Ticket(vip, name, problem));
     }
 

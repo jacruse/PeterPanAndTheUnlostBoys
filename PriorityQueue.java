@@ -1,7 +1,7 @@
-public interface PriorityQueue
+public interface PriorityQueue<T>
 {
-    void add( Object x );
-    boolean isEmpty();
-    Object peekMin();
-    Object removeMin();
+    public void add( T x );
+    public boolean isEmpty();
+    public T peekMin();
+    public T removeMin();
 }
