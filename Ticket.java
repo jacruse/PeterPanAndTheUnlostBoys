@@ -1,3 +1,5 @@
+import cs1.Keyboard;
+
 public class Ticket implements Comparable{
 
     private int _id;
@@ -15,10 +17,12 @@ public class Ticket implements Comparable{
 	    }
 	_id = idTracker;
 	idTracker +=1;
-	_vip = 0;
-	problem = "N/A";
-	_name = "<YOURNAMEHERE>";
-	solution = "N/A";
+	System.out.println("What is your name?");
+	_name = Keyboard.readString();
+	System.out.println("What level priority are you?");
+	_vip = Keyboard.readInt();
+	System.out.println("What is your problem?");
+	problem = Keyboard.readString();
 	solved = false;
     }
     
@@ -27,7 +31,6 @@ public class Ticket implements Comparable{
 	_vip = vip;
 	_name = name;
 	problem = prob;
-	solution = "N/A";
 	solved = false;	
     }
 
